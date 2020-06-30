@@ -255,7 +255,7 @@ function createlvm()
       # http://superuser.com/questions/332252/creating-and-formating-a-partition-using-a-bash-script
 
       echo -e "n\np\n1\n\n\nw" | fdisk $devicePath > /dev/null
-      syc
+      sync
 
       local partPath="$devicePath""1"
 
