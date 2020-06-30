@@ -256,9 +256,7 @@ function createlvm()
 
       echo -e "n\np\n1\n\n\nw" | fdisk $devicePath > /dev/null
       sync
-
       local partPath="$devicePath""1"
-
       mkfs -t xfs $partPath 
 
       mkdir -p $mountPathLoc
