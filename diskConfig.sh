@@ -218,11 +218,11 @@ function createlvm()
 
       local lvNameLoc="$lvName-$j"
 
-      $(lvcreate --extents $sizeLoc%FREE --stripes $numRaidDevices --name $lvNameLoc $vgName)
+      lvcreate --extents $sizeLoc%FREE --stripes $numRaidDevices --name $lvNameLoc $vgName
 
-      $(mkfs -t xfs /dev/$vgName/$lvNameLoc)
+      mkfs -t xfs /dev/$vgName/$lvNameLoc
 
-      $(mkdir -p $mountPathLoc)
+      mkdir -p $mountPathLoc
 
 
 
@@ -254,13 +254,13 @@ function createlvm()
 
       # http://superuser.com/questions/332252/creating-and-formating-a-partition-using-a-bash-script
 
-      $(echo -e "n\np\n1\n\n\nw" | fdisk $devicePath) > /dev/null
+      echo -e "n\np\n1\n\n\nw" | fdisk $devicePath > /dev/null
 
       local partPath="$devicePath""1"
 
-      $(mkfs -t xfs $partPath) > /dev/null
+      mkfs -t xfs $partPath > /dev/null
 
-      $(mkdir -p $mountPathLoc)
+      mkdir -p $mountPathLoc
 
 
 
