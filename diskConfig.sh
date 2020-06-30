@@ -255,10 +255,11 @@ function createlvm()
       # http://superuser.com/questions/332252/creating-and-formating-a-partition-using-a-bash-script
 
       echo -e "n\np\n1\n\n\nw" | fdisk $devicePath > /dev/null
+      syc
 
       local partPath="$devicePath""1"
 
-      mkfs -t xfs $partPath > /dev/null
+      mkfs -t xfs $partPath 
 
       mkdir -p $mountPathLoc
 
