@@ -202,9 +202,9 @@ function createlvm()
 
     log "num: $numRaidDevices paths: '$raidDevices'"
 
-    $(pvcreate $raidDevices)
+    pvcreate $raidDevices
 
-    $(vgcreate $vgName $raidDevices)
+    vgcreate $vgName $raidDevices
 
 
 
